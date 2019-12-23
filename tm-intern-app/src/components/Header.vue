@@ -1,9 +1,12 @@
 <template>
   <div class="header">
-    <p class="title">テクノモバイル 新卒採用Apps</p>
-    <div class="menu">
-      <p>menu | menu | menu | menu</p>
-    </div>
+    <el-header>
+      <p class="title">テクノモバイル 新卒採用Apps</p>
+      <div class="menu">
+        <el-button type="primary" class="el-icon-user-solid icon"></el-button>
+        <el-button type="primary" class="el-icon-s-tools icon"></el-button>
+      </div>
+    </el-header>
   </div>
 </template>
 
@@ -16,13 +19,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .header{
-  color: white;
-  font-family: arial black;
-  position: absolute;
-  left:0;
-  top:0;
-  width: 100%;
-  background:#000;
+  font-family:"PingFang SC";
+  font-weight: bold;
 }
 
 .title{
@@ -31,6 +29,10 @@ export default {
 
 .menu{
   text-align: right;
+}
+
+i{
+
 }
 
 </style>
