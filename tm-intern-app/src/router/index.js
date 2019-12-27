@@ -1,14 +1,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Question from '../views/Question.vue'
+import QuestionDetail from '../views/QuestionDetail.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/question',
     name: 'question',
     component: Question
+  },
+  {
+    path: '/questionDetail',
+    name: 'questionDetail',
+    component: QuestionDetail
   },
   {
     path: '/about',

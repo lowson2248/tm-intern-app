@@ -1,28 +1,32 @@
 <template>
-  <div class="question">
+  <div class="questionPage">
     <h2>アンケート管理画面</h2>
-    <el-button type="primary" class="el-icon-circle-plus-outline icon">CREATE</el-button>
+    <el-button type="primary" class="el-icon-circle-plus-outline icon" href="QuestionDetail">CREATE</el-button>
     
     <div class="questions">
       <el-table :data="tableData" stripe>
-        <el-table-column
-          prop="isAgg"
-          label="Aggregate"
-          width="300px">
-          <el-button v-if="isAgg" type="warning" class="el-icon-s-marketing icon">OK</el-button>
-        </el-table-column>
+        <!-- 12/27メモ by Iwase
+          ・作成ボタン（CREATE）で作成画面へ遷移
+          ・対象アンケートをクリックで該当アンケートの詳細画面へ遷移（方法模索中、idを渡してやるのがいいかも？）
+          ・アンケートに種類を追加（インターンと採用とカスタム）
+          ・日付とアンケート種類でソート可能
+        -->
         <el-table-column
           prop="date"
           label="Date"
-          sortable>
+          sortable
+        >
+        </el-table-column>
+        <el-table-column
+          prop="kind"
+          label="Kind"
+          sortable
+        >
         </el-table-column>
         <el-table-column
           prop="discription"
-          label="Discription">
-        </el-table-column>
-        <el-table-column>
-          <el-button type="primary" class="el-icon-edit-outline icon">EDIT</el-button>
-          <el-button type="danger" class="el-icon-delete icon">DELETE</el-button>
+          label="Discription"
+        >
         </el-table-column>
       </el-table>
     </div>
@@ -35,30 +39,35 @@ export default {
   name: 'question',
   data() {
     return {
-      dispray: false,
       tableData: [{
-        isAgg: true,
+        id: 0,
+        kind: 'インターン',
         date: '2020-01-01',
         discription: '第N回 1dayインターンアンケート'
       }, {
-        isAgg: false,
+        id: 1,
+        kind: 'カスタム',
         date: '2020-01-02',
         discription: '適当'
       }, {
-        isAgg: false,
+        id: 2,
+        kind: 'カスタム',
         date: '2020-01-03',
         discription: '新卒採用内活動方針アンケート'
       }, {
-        isAgg: false,
+        id: 3,
+        kind: '採用',
         date: '2020-01-04',
         discription: '新卒採用アンケート'
       }]//tableData end
     }//return end
+  },
+  methods: {
+    select(some){
+      console.log('id is' + some.id)
+    }//select end
   }
-}
+}//END
 </script>
 <style scoped>
-.questions{
-}
-
 </style>
