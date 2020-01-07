@@ -1,6 +1,5 @@
 <template>
   <div class="questionDetail">
-    <h2>アンケート詳細</h2>
     <div class="questionHead">
       <!-- 12/17メモ by Iwase
         データ内の情報（アンケートの詳細や結果など）を表示する。
@@ -15,14 +14,28 @@
         フォントダサいんで、何とか変えてください。
        -->
       <h1 class="title">{{ discription }}</h1>
-      <p class="common">実施日 : <span class="date">{{ date }}</span></p>
+      <p class="common">実施日 : <span class="date" >{{ date }}</span></p>
       <p class="common">アンケート種別 : <span class="kind">{{ kind }}</span></p>
     </div>
-    <div class="questionData">
-    </div>
     <div class="questionNav">
-      <el-button type="warning" class="el-icon-circle-plus-outline icon">EDIT</el-button>
+      <el-button type="warning" class="el-icon-circle-plus-outline icon" v-on:click="test">EDIT</el-button>
       <el-button type="danger" class="el-icon-circle-plus-outline icon">DELETE</el-button>
+    </div>
+    <div v-if="editFlg" class="questionData">
+      <el-button @click="addItem">New Item</el-button>
+      <el-form>
+        <el-form-item
+          v-for="(item, index) in dynamicValidateForm.items"
+          :label="'項目' + ( index + 1 )"
+          :key="item.key"
+          :prop="'items.' + index + '.value'"
+          :rules="{
+            required: true, message: 'item can not be null', trigger: 'blur'
+          }"
+        >
+          <el-input v-model="item.value"></el-input><el-button @click.prevent="removeItem(item)">Delete</el-button>
+        </el-form-item>
+      </el-form>
     </div>
   </div>
 </template>
@@ -36,9 +49,39 @@ export default {
         id: 0,
         kind: 'インターン',
         date: '2020-01-01',
-        discription: '第N回 1dayインターンアンケート'
+        discription: '第N回 1dayインターンアンケート',
+        editFlg: true,
+        dynamicValidateForm: {
+          items: [{
+            key: 1,
+            value: ''
+          }]
+        }
     }//return end
-  }//data end
+  },//data end
+  methods: {
+    test(){
+      if(this.editFlg == true){
+        console.log('true to false')
+        this.editFlg = false
+      }else{
+        console.log('false to true')
+        this.editFlg = true
+      }
+    },
+    removeItem(item) {
+      var index = this.dynamicValidateForm.items.indexOf(item);
+      if (index !== -1) {
+        this.dynamicValidateForm.items.splice(index, 1);
+      }
+    },
+    addItem() {
+      this.dynamicValidateForm.items.push({
+        key: Date.now(),
+        value: ''
+      });
+    }
+  }
 }//END
 </script>
 <style scoped>
@@ -55,7 +98,6 @@ export default {
 .questionData{
   width:80%;
   height:70%;
-  background:#111;
 }
 
 

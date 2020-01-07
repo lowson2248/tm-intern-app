@@ -1,6 +1,6 @@
 <template>
   <div class="questionPage">
-    <h2>アンケート管理画面</h2>
+    <h2>アンケート管理</h2>
     <el-button type="success" class="el-icon-circle-plus-outline icon" href="QuestionDetail">CREATE</el-button>
     
     <div class="questions">
