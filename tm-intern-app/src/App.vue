@@ -8,6 +8,7 @@
 <script>
 // @ is an alias to /src
 import Header from '@/components/Header.vue'
+import 'normalize.css'
 
 export default {
   name: 'home',
@@ -19,6 +20,12 @@ export default {
 
 <style>
 #app{
-  color:#444; 
+  margin:0;
+  color:#444;
+}
+
+Header{
+  position: fixed;
+  top :0;
 }
 </style>

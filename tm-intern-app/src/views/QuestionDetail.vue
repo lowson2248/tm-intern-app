@@ -22,7 +22,7 @@
     </div>
     <div class="questionNav">
       <el-button type="warning" class="el-icon-circle-plus-outline icon">EDIT</el-button>
-      <el-button type="warning" class="el-icon-circle-plus-outline icon">DELETE</el-button>
+      <el-button type="danger" class="el-icon-circle-plus-outline icon">DELETE</el-button>
     </div>
   </div>
 </template>

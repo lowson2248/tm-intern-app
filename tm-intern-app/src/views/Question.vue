@@ -1,7 +1,7 @@
 <template>
   <div class="questionPage">
     <h2>アンケート管理画面</h2>
-    <el-button type="primary" class="el-icon-circle-plus-outline icon" href="QuestionDetail">CREATE</el-button>
+    <el-button type="success" class="el-icon-circle-plus-outline icon" href="QuestionDetail">CREATE</el-button>
     
     <div class="questions">
       <el-table :data="tableData" stripe>
