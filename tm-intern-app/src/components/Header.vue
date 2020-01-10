@@ -1,16 +1,28 @@
 <template>
-  <div class="header">
-    <el-header>
+  <div>
+    <el-header class="header" height="90px">
       <h1 class="title">ROHSTEIN</h1>
+      <div class="menu">
+        <el-button type="success" class="el-icon-user-solid btn" circle></el-button>
+        <el-button type="success" class="el-icon-s-tools btn" circle></el-button>
+      </div>
     </el-header>
-    <div class="menu">
-      <el-button type="success" class="el-icon-user-solid btn" circle></el-button>
-      <el-button type="success" class="el-icon-s-tools btn" circle></el-button>
-    </div>
+    <!-- <slide>
+      <a id="home" href="#">
+        <span>Home</span>
+      </a>
+      <a id="about" href="#">
+        <span>About</span>
+      </a>
+      <a id="contact" href="#">
+        <span>Contact</span>
+      </a>
+    </slide> -->
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'Header'
 }
@@ -21,7 +33,7 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Anton&display=swap');
 
 .header{
-  height: 100px;
+  width:100%;
   background: #444;
   color: #fff;
   font-weight: bold;
@@ -31,6 +43,7 @@ export default {
   font-family: 'Anton', sans-serif;
   letter-spacing: 5px;
   text-align: left;
+  margin:0;
 }
 
 .menu{
@@ -38,7 +51,17 @@ export default {
 }
 
 .btn{
-  margin:50px 20px;
+  margin: 0;
+}
+
+.sideBtn{
+  
+}
+
+.sideNav{
+  position:fixed;
+  margin:0;
+  z-index:10;
 }
 
 </style>

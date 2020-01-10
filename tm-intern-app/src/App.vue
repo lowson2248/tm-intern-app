@@ -12,20 +12,22 @@ import 'normalize.css'
 
 export default {
   name: 'home',
-  components: {
-    Header
-  }
+    components: {
+      Header
+    }
 }
 </script>
 
 <style>
 #app{
-  margin:0;
   color:#444;
+  margin-top:100px;
 }
 
 Header{
   position: fixed;
-  top :0;
+  top:0;
+  z-index:10;
 }
+
 </style>

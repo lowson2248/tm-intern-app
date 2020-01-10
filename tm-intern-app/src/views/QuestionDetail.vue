@@ -37,6 +37,9 @@
         </el-form-item>
       </el-form>
     </div>
+    <div class="questionView">
+      <p>test</p>
+    </div>
   </div>
 </template>
 
@@ -96,8 +99,15 @@ export default {
 }
 
 .questionData{
-  width:80%;
+  width:50%;
   height:70%;
+}
+
+.questionView{
+  float: right;
+  width:50%;
+  height: 40em;
+  background: black;
 }
 
 
